@@ -33,7 +33,7 @@ app.post('/submit', async (req, res) => {
     // Insert data into the database
     await sql.query(`INSERT INTO Grades (studentId, grade) VALUES (${studentId}, ${grade})`);
 
-    // Calculate the average grade (you'll need to implement this)
+    // Calculate the average grade using dataUtils
     const average = await dataUtils.calculateAverageGrade();
 
     res.status(200).json({ message: 'Data inserted successfully', average });
@@ -55,10 +55,7 @@ app.get('/data', async (req, res) => {
     const result = await sql.query('SELECT studentId, grade FROM Grades');
     const grades = result.recordset;
 
-    // Calculate the average grade for each student
-    const studentAverages = calculateAverageGrade();
-
-    res.status(200).json(studentAverages);
+    res.status(200).json(grades); // Return the data as an array
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
@@ -76,29 +73,19 @@ app.listen(3000, () => {
 });
 
 // Define the calculateAverageGrade function in server.js
-async function calculateAverageGrade() {
+
+// Define the calculateAverageGrade function in server.js
+async function calculateAverageGrade(grades) {
   try {
-    await sql.connect(config);
-
-    // Query the database to retrieve all student IDs
-    const result = await sql.query('SELECT DISTINCT studentId FROM Grades');
-
-    const studentIds = result.recordset;
-
-    // Calculate the average grade for each student
     const studentAverages = [];
 
-    for (const studentId of studentIds) {
-      const studentGrades = await sql.query(
-        `SELECT grade FROM Grades WHERE studentId = ${studentId.studentId}`
-      );
-      const grades = studentGrades.recordset;
-      
-      if (grades.length > 0) {
-        const total = grades.reduce((sum, grade) => sum + grade.grade, 0);
-        const average = total / grades.length;
-        studentAverages.push({ studentId: studentId.studentId, average });
-      }
+    const uniqueStudentIds = [...new Set(grades.map((grade) => grade.studentId))];
+
+    for (const studentId of uniqueStudentIds) {
+      const studentGrades = grades.filter((grade) => grade.studentId === studentId);
+      const total = studentGrades.reduce((sum, grade) => sum + grade.grade, 0);
+      const average = total / studentGrades.length;
+      studentAverages.push({ studentId, average });
     }
 
     return studentAverages;
