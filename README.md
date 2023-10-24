@@ -1,4 +1,4 @@
-# GradeCalculatorApp
+<title>GradeCalculatorApp<title/>
 
 <h1>Grade Calculator App developed using Node.js, Express for front-end. Azure SQL Database and Azure App Services for database and network backend.<h1/>
 
