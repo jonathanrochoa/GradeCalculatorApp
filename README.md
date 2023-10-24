@@ -4,7 +4,7 @@
 
 <h2>Project for Cloud Software Development to demonstrate deploying a cloud-provider Database and connecting it to front-end functions that Create, Read, and Transform data.</h2>
 <br><br/>
-<p>Using the following link, the user can enter a student ID (integer) and a Grade. The data gets posted through API to the Azure SQL database. The user is then redirected to the second page where they can view all grades associated with each Student ID in the database and the average grade for each Student ID</p>
+<p>Using the following link, the user can enter a student ID (integer) and a Grade (integer). The data gets posted through API to the Azure SQL database. The user is then redirected to the second page where they can view all grades associated with each Student ID in the database and the average grade for each Student ID</p>
 
 <br><br/>
 
