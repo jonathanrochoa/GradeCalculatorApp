@@ -5,10 +5,10 @@ const path = require('path');
 const dataUtils = require('./dataUtils');
 
 const config = {
-  user: 'ServAdmin808',
-  password: 'BlackDragon999',
-  server: 'projectsserver1.database.windows.net',
-  database: 'GradeCalculatorDb',
+  user: '*******',
+  password: '*******',
+  server: '*******',
+  database: '*********',
   options: {
     encrypt: true,
   },
