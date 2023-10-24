@@ -21,6 +21,9 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Change working directory to my-node-app
+        run: cd my-node-app
+        
       - name: npm install, build, and test
         run: |
           npm install
