@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const sql = require('mssql');
 const path = require('path');
-const dataUtils = require('./dataUtils'); // Import your dataUtils module
+const dataUtils = require('./dataUtils');
 
 const config = {
   user: 'ServAdmin808',
@@ -19,9 +19,12 @@ app.use(express.json());
 // Serve static files from the "public" folder
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-// Serve your static HTML file
+// Serve static HTML files from the "static" folder
+app.use('/static', express.static(path.join(__dirname, 'static')));
+
+// Serve static HTML file
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/static/index.html');
 });
 
 // Handle POST request from the form
@@ -56,7 +59,7 @@ app.get('/data', async (req, res) => {
     const grades = result.recordset;
 
     res.status(200).json(grades); // Return the data as an array
-  } catch (error) {
+  } catch (error) { 
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
   } finally {
@@ -64,15 +67,15 @@ app.get('/data', async (req, res) => {
   }
 });
 
+// Serve static HTML file (gradeinfo.html)
 app.get('/gradeinfo.html', (req, res) => {
-  res.sendFile(__dirname + '/gradeinfo.html');
+  res.sendFile(__dirname + '/static/gradeinfo.html');
 });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
-});
+//app.listen(3000, () => {
+//  console.log('Server is running on port 3000');
+//});
 
-// Define the calculateAverageGrade function in server.js
 
 // Define the calculateAverageGrade function in server.js
 async function calculateAverageGrade(grades) {

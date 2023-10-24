@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Fetch data and update tables
-  fetch('/data') // Replace with the appropriate route on your server
+  fetch('/data')
     .then((response) => response.json())
     .then((data) => {
       // Organize the data by student ID
@@ -44,7 +44,7 @@ function organizeData(data) {
       };
     }
   });
-  
+
   return Object.values(organizedData);
 }
 
