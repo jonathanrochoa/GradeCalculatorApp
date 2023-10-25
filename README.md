@@ -19,6 +19,8 @@ https://gradecalc1.azurewebsites.net/
 
 <br><br/>
 
+## Example
+
 ![Primary Screen](https://github.com/jonathanrochoa/GradeCalculatorApp/assets/49356114/4706b611-3808-4edd-a002-f5c4cd8f09d1)
 
 
