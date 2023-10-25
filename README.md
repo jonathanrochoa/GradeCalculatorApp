@@ -5,9 +5,13 @@ Grade Calculator App is a web application built with Node.js for server-side dev
 
 
 <img src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" /> <img src="https://img.shields.io/badge/Express%20js-000000?style=for-the-badge&logo=express&logoColor=white" /> <img src="https://img.shields.io/badge/microsoft%20azure-0089D6?style=for-the-badge&logo=microsoft-azure&logoColor=white" />
-
+ ## Instructions:
 <br><br/>
-<p>Using the following link, the user can enter a student ID (integer) and a Grade (integer). The data gets posted through API to the Azure SQL database. The user is then redirected to the second page where they can view all grades associated with each Student ID in the database and the average grade for each Student ID</p>
+<p>Using the following link
+  - Enter a student ID (integer) and a Grade (integer)
+  - Click "Submit"
+  - View the data for all grades associated with each Student ID in the database and the average grade for each Student ID
+</p>
 
 <br><br/>
 
